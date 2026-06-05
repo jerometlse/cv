@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV - Jérôme CAPELLE - Ingénieur Full Stack</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&family=Inter:wght@300;400;600&display=swap"
+        rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+        }
+
+        h1,
+        h2,
+        h3 {
+            font-family: 'Sora', sans-serif;
+        }
+
+        .bento-card {
+            background: #d4e6e3;
+            border: 1px solid #334155;
+            border-radius: 1.5rem;
+            padding: 1.25rem;
+            transition: all 0.3s ease;
+            color: #334155;
+        }
+
+        .accent-text {
+            color: #29b8a5;
+        }
+
+        /* Portrait style */
+        .profile-photo {
+            width: 140px;
+            height: 140px;
+            border-radius: 1.2rem;
+            object-fit: cover;
+            object-position: center 20%;
+            filter: grayscale(100%) contrast(110%);
+            border: 1px solid #334155;
+        }
+
+        @media print {
+            body {
+                background-color: #fff;
+                color: #1e293b;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .bento-card {
+                border: 1px solid #334155;
+                background: #d4e6e3 !important;
+                color: #334155 !important;
+                break-inside: avoid;
+                box-shadow: none;
+                -webkit-print-color-adjust: exact;
+                print-color-adjust: exact;
+            }
+
+            .accent-text {
+                color: #29b8a5 !important;
+            }
+
+            .profile-photo {
+                filter: none;
+                border-color: #334155;
+            }
+
+            /* Keep first two header cards side-by-side when printing */
+            header {
+                display: grid !important;
+                grid-template-columns: 2fr 1fr !important;
+                gap: 1.5rem !important;
+                page-break-inside: avoid;
+                break-inside: avoid;
+            }
+
+            header>.bento-card {
+                break-inside: avoid;
+                page-break-inside: avoid;
+            }
+
+            /* Ensure portrait + name remain on the same line when printing */
+            header>.bento-card:first-child {
+                display: flex !important;
+                flex-direction: row !important;
+                align-items: center !important;
+                justify-content: flex-start !important;
+                gap: 1rem !important;
+            }
+
+            header>.bento-card:first-child .profile-photo {
+                width: 110px !important;
+                height: 110px !important;
+                flex-shrink: 0 !important;
+            }
+
+            /* Formations en colonnes imprimées : Formations + (Atouts + Langues) */
+            .formations-grid {
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: 1fr 1fr;
+                column-gap: 1rem;
+                row-gap: 0.5rem; /* espacement unifié */
+                align-items: stretch; /* alignement du bas sur toute la zone */
+            }
+
+            .formations-grid > .bento-card {
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+            }
+
+            /* Atouts/Langues : garder contenu collé sous le h3 en haut de la carte */
+            .formations-grid > .bento-card:nth-child(2),
+            .formations-grid > .bento-card:nth-child(3) {
+                justify-content: flex-start;
+            }
+
+            .formations-grid > .bento-card:nth-child(2) h3 + div,
+            .formations-grid > .bento-card:nth-child(3) h3 + div {
+                margin-top: 0.8rem;
+            }
+
+            .formations-grid > .bento-card:nth-child(1) {
+                grid-column: 1 / 2;
+                grid-row: 1 / 3;
+            }
+
+            .formations-grid > .bento-card:nth-child(2) {
+                grid-column: 2 / 3;
+                grid-row: 1 / 2;
+            }
+
+            .formations-grid > .bento-card:nth-child(3) {
+                grid-column: 2 / 3;
+                grid-row: 2 / 3;
+            }
+        }
+    </style>
+</head>
+
+<body class="p-4 md:p-8">
+
+    <div class="max-w-5xl mx-auto space-y-4">
+
+        <header class="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div class="md:col-span-2 bento-card flex flex-col md:flex-row items-center gap-5">
+                <div class="w-30">
+                    <img src="portrait.jpg" alt="Portrait de Jérôme Capelle" class="profile-photo">
+                </div>
+                <div>
+                    <h1 class="text-4xl md:text-5xl font-extrabold mb-2">Jérôme <span class="accent-text">CAPELLE</span>
+                    </h1>
+                    <p class="text-xl font-semibold text-slate-600 mb-4">Ingénieur Développement Full Stack</p>
+                </div>
+            </div>
+
+            <div class="bento-card space-y-3 text-[11px]">
+                <div class="flex items-center gap-2"><i data-lucide="map-pin-house" class="accent-text w-4"></i> Gragnague
+                    (31)</div>
+                <div class="flex items-center gap-2"><i data-lucide="phone" class="accent-text w-4"></i> 06 16 49 40 25
+                </div>
+                <div class="flex items-center gap-2"><i data-lucide="mail" class="accent-text w-4"></i>
+                    jerome.capelle@gmail.com</div>
+                <div class="pt-1">
+                    <span class="bg-slate-700 px-3 py-1 rounded-full text-xs font-bold text-teal-400">50 ans</span>
+                    <span class="bg-slate-700 px-3 py-1 rounded-full text-xs font-bold text-teal-400">Permis B</span>
+                </div>
+            </div>
+        </header>
+
+        <div class="bento-card">
+            <p class="text-slate-500 leading-relaxed text-sm">
+                Expert avec 15 ans d'expérience dans la conception d’applications web critiques. Spécialisé en
+                architectures backend (Django, Symfony) et interfaces modernes (Vue.js, Nuxt) pour de grands comptes.
+            </p>
+        </div>
+
+        <section class="grid grid-cols-2 md:grid-cols-4 gap-3">
+            <div class="bento-card">
+                <div class="flex items-center gap-3 mb-2">
+                    <i data-lucide="database" class="accent-text w-5 h-5"></i>
+                    <h3 class="font-bold text-sm">Backend</h3>
+                </div>
+                <p class="text-xs text-slate-400 leading-tight">Python (Django), PHP (Symfony 3/4).</p>
+            </div>
+            <div class="bento-card">
+                <div class="flex items-center gap-3 mb-2">
+                    <i data-lucide="layout" class="accent-text w-5 h-5"></i>
+                    <h3 class="font-bold text-sm">Frontend</h3>
+                </div>
+                <p class="text-xs text-slate-400 leading-tight">Vue.js, Nuxt, Angular, Tailwind CSS, DaisyUI.</p>
+            </div>
+            <div class="bento-card">
+                <div class="flex items-center gap-3 mb-2">
+                    <i data-lucide="server" class="accent-text w-5 h-5"></i>
+                    <h3 class="font-bold text-sm">Data</h3>
+                </div>
+                <p class="text-xs text-slate-400 leading-tight">PostgreSQL, MSSQL, MariaDB, Talend ETL.</p>
+            </div>
+            <div class="bento-card">
+                <div class="flex items-center gap-3 mb-2">
+                    <i data-lucide="cloud" class="accent-text w-5 h-5"></i>
+                    <h3 class="font-bold text-sm">Cloud / Ops</h3>
+                </div>
+                <p class="text-xs text-slate-400 leading-tight">Google Cloud Platform, G Suite APIs, Docker.</p>
+            </div>
+        </section>
+
+        <div class="grid grid-cols-1 md:grid-cols-3">
+            <div class="md:col-span-2 space-y-4">
+                <h2 class="text-2xl font-bold flex items-center gap-2 text-[#334155] mt-5">
+                    <i data-lucide="briefcase" class="accent-text"></i> Expériences
+                </h2>
+
+                <div class="bento-card space-y-4">
+                    <div>
+                        <h3 class="text-lg font-bold uppercase tracking-wide">CCL CONSULTING</h3>
+                        <p class="text-sm accent-text font-semibold">Ingénieur Full Stack | 2020 – Aujourd'hui</p>
+                    </div>
+                    <ul class="text-sm space-y-4 text-slate-300">
+                        <li>
+                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
+                            <strong class="italic text-[#334155]">Safran Ventilation Systems</strong><br />
+                            <span class="text-slate-500 ml-3">Développement d'une application permettant de calculer la fiabilité des équipements fabriqués.</span>
+                            <div class="ml-4 mt-2 text-xs text-slate-400">
+                                Environnement : Python, Django, VueJs, Nuxt, Tailwind css, Daisyui, PostgresSQL, Git, VisualStudio code.
+                            </div>
+                        </li>
+                        <li>
+                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
+                            <strong class="italic text-[#334155]">Guidap</strong><br />
+                            <span class="text-slate-500 ml-3">Maintenance et évolution d’une application d’activité de plein air</span>
+                            <div class="ml-4 mt-2 text-xs text-slate-400">
+                                Environnement technique : PHP, Symfony 3.5, VueJs, MariaDB, PostgresSQL, Git, Docker, PHPStorm.
+                            </div>
+                        </li>
+                        <li>
+                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
+                            <strong class="italic text-[#334155]">Airbus</strong><br />
+                            <span class="text-slate-500 ml-3">Automatisation et gestion du cycle de vie des comptes des collaborateurs dans G Suite</span>
+                            <div class="ml-4 mt-2 text-xs text-slate-400">
+                                Environnement technique : Python, Django, MSSQL, Angular, TypeScript, HTML/CSS, Google Api, RabbitMq, DevExtreme, App Engine, Datastore, PhpStorm, Sublime Text, Visual Studio Code, PyCharm, Git.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="md:col-span-2 space-y-4 mt-5">
+                <div class="bento-card space-y-4">
+                    <div>
+                        <h3 class="text-lg font-bold uppercase tracking-wide">DÉCASOFT</h3>
+                        <p class="text-sm accent-text font-semibold">Ingénieur d'études | 2017 – 2020</p>
+                    </div>
+                    <ul class="text-sm space-y-4 text-slate-300">
+                        <li>
+                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
+                            <strong class="italic text-[#334155]">Airbus</strong><br />
+                            <span class="text-slate-500 ml-3">Développement et maintenance de plusieurs sites internet pour les clients</span>
+                            <div class="ml-4 mt-2 text-xs text-slate-400">
+                                Environnement technique : PHP, Symfony 3, Python, Django, MSSQL, Google Api, RabbitMq, Angular, DevExtreme, PhpStorm, Sublime Text, Visual Studio Code,PyCharm, Git.
+                            </div>
+                        </li>
+                        <li>
+                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
+                            <strong class="italic text-[#334155]">WS-Interactive</strong><br />
+                            <span class="text-slate-500 ml-3">Développement et maintenance de plusieurs sites internet pour les clients</span>
+                            <div class="ml-4 mt-2 text-xs text-slate-400">
+                                Environnement technique : PHP, CMS Automne, HTML, CSS, JavaScript, MySQL, Git, Sublime Text, PHPMyAdmin.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="bento-card space-y-4">
+                    <div>
+                        <h3 class="text-lg font-bold uppercase tracking-wide">CELAD</h3>
+                        <p class="text-sm accent-text font-semibold">Ingénieur Développement | 2010 – 2017</p>
+                    </div>
+                    
+                    <ul class="text-sm space-y-4 text-slate-300">
+                        <li>
+                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
+                            <strong class="italic text-[#334155]">FRAM</strong><br />
+                            <span class="text-slate-500 ml-3">Développement des plateformes B2B/B2C : réalisation de back-offices complexes sous Symfony et
+                            gestion de flux de données via Talend.</span>
+                            <div class="ml-4 mt-2 text-xs text-slate-400">
+                                Environnement technique : PHP, Symfony (1.4 & 2), CSS, JQuery, ZendStudio, SVN, ZendJobQueue, Talend Open Studio (ETL), base de données (DB2, SQL serveur et postgreSql)
+                            </div>
+                        </li>
+                        <li>
+                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
+                            <strong class="italic text-[#334155]">Europa Organisation</strong><br />
+                            <span class="text-slate-500 ml-3">Développement d'une application de gestion de chambre d'hôtel</span>
+                            <div class="ml-4 mt-2 text-xs text-slate-400">
+                                Environnement technique :  PHP, Symfony2, HTML/CSS, AngularJS, PostgreSQL, Git. Développement sous environnement Max & PhpStorm.
+                            </div>
+                        </li>
+                        <li>
+                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
+                            <strong class="italic text-[#334155]">LATecis (groupe Latécoère)</strong><br />
+                            <span class="text-slate-500 ml-3">Développement et maintenance de plusieurs applications</span>
+                            <div class="ml-4 mt-2 text-xs text-slate-400">
+                                Environnement technique : php, HTML/CSS, Jquery, ExtJs, postgreSql.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bento-card space-y-4">
+                    <div>
+                        <h3 class="text-lg font-bold uppercase tracking-wide">PCKADO</h3>
+                        <p class="text-sm accent-text font-semibold">Développeur informatique | 2006 – 2009</p>
+                    </div>
+                    <ul class="text-sm space-y-4 text-slate-300">
+                        <li>
+                            <span class="text-slate-500 mt-2">
+                                Réalisation de fonctionnalités pour l'intranet et les sites internet de e-commerce de l'entreprise
+                            </span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+               
+            <div class="formations-grid">
+                <div class="bento-card space-y-3">
+                    <h3 class="font-bold flex items-center gap-1 text-[#334155]">
+                        <i data-lucide="graduation-cap" class="accent-text"></i>Formations
+                    </h3>
+                    <div>
+                        <p class="font-bold text-sm text-slate-500">Angular - Découvrir le framework</p>
+                        <p class="text-xs text-slate-400">AELION Toulouse | 2021</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-slate-500">Symfony 2</p>
+                        <p class="text-xs text-slate-400">Sensio Labs | 2014</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-slate-500">Développement JAVA/J2EE</p>
+                        <p class="text-xs text-slate-400">CRP Consulting Balma | 2009</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-slate-500">Développeur Informatique (Option Client/Serveur)</p>
+                        <p class="text-xs text-slate-400">AFPA Toulouse | 2005</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-slate-500">Diplôme de Recherche Universitaire</p>
+                        <p class="text-xs text-slate-400">INP-ENSIACET au sein du laboratoire de chimie Agro-industrielle Toulouse | 2001</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-slate-500">Maîtrise de Chimie</p>
+                        <p class="text-xs text-slate-400">Université Paul Sabatier Toulouse | 2000</p>
+                    </div>
+                </div>
+
+                <div class="bento-card">
+                    <h3 class="font-bold flex items-center text-[#334155]"><i data-lucide="sparkles" class="accent-text"></i>Atouts</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">ADAPTABILITÉ</span>
+                        <span
+                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">PERFECTIONNISME</span>
+                        <span
+                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">RIGUEUR</span>
+                    </div>
+                </div>
+                <div class="bento-card">
+                    <h3 class="font-bold flex items-center text-[#334155]"><i data-lucide="languages" class="accent-text"></i>Langues</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span
+                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">Français – Langue Maternelle</span>
+                        <span
+                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">Anglais – Niveau Technique</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
