@@ -15,7 +15,7 @@
         body {
             font-family: 'Inter', sans-serif;
             color: #1e293b;
-            background-color: #ffffff;
+            background-color: #d4e6e359;
         }
 
         h1,
@@ -383,6 +383,21 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="fab">
+        <!-- a focusable div with tabindex is necessary to work on all browsers. role="button" is necessary for accessibility -->
+        <div tabindex="0" role="button" class="btn btn-lg btn-circle bg-[#334155] text-white hover:bg-[#d4e6e3] hover:text-[#334155] border border-[#334155]">
+            <i data-lucide="settings"></i>
+        </div>
+
+        <div class="fab-close">
+        <span class="btn btn-circle btn-lg bg-[#d4e6e3] text-[#334155]">✕</span>
+        </div>
+
+        <!-- buttons that show up when FAB is open -->
+        <a class="btn btn-lg btn-circle btn-outline bg-[#334155] text-white hover:bg-[#d4e6e3] hover:text-[#334155] border border-[#334155]" target="_blank" href="./cv-jerome-capelle-ingenieur-full-stack.pdf"><i data-lucide="file-down"></i></a>
+        <a class="btn btn-lg btn-circle btn-outline bg-[#334155] text-white hover:bg-[#d4e6e3] hover:text-[#334155] border border-[#334155]" href="./sombre.html"><i data-lucide="moon-star"></i></a>
     </div>
 
     <script>
