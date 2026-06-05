@@ -15,7 +15,7 @@
         body {
             font-family: 'Inter', sans-serif;
             color: #1e293b;
-            background-color: #ffffff;
+            background-color: #d4e6e359;
         }
 
         h1,
@@ -362,7 +362,7 @@
                 </div>
 
                 <div class="bento-card">
-                    <h3 class="font-bold flex items-center text-[#334155]"><i data-lucide="sparkles" class="accent-text"></i>Atouts</h3>
+                    <h3 class="font-bold flex items-center text-[#334155]"><i data-lucide="sparkles" class="accent-text mr-2"></i>Atouts</h3>
                     <div class="flex flex-wrap gap-2 mt-2">
                         <span
                             class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">ADAPTABILITÉ</span>
@@ -373,7 +373,7 @@
                     </div>
                 </div>
                 <div class="bento-card">
-                    <h3 class="font-bold flex items-center text-[#334155]"><i data-lucide="languages" class="accent-text"></i>Langues</h3>
+                    <h3 class="font-bold flex items-center text-[#334155]"><i data-lucide="languages" class="accent-text mr-2"></i>Langues</h3>
                     <div class="flex flex-wrap gap-2 mt-2">
                         <span
                             class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">Français – Langue Maternelle</span>
@@ -383,6 +383,21 @@
                 </div>
             </div>
         </div>
+    </div>
+
+    <div class="fab">
+        <!-- a focusable div with tabindex is necessary to work on all browsers. role="button" is necessary for accessibility -->
+        <div tabindex="0" role="button" class="btn btn-lg btn-circle bg-[#334155] text-white hover:bg-[#d4e6e3] hover:text-[#334155] border border-[#334155]">
+            <i data-lucide="settings"></i>
+        </div>
+
+        <div class="fab-close">
+        <span class="btn btn-circle btn-lg bg-[#d4e6e3] text-[#334155]">✕</span>
+        </div>
+
+        <!-- buttons that show up when FAB is open -->
+        <a class="btn btn-lg btn-circle btn-outline bg-[#334155] text-white hover:bg-[#d4e6e3] hover:text-[#334155] border border-[#334155]" target="_blank" href="./cv-jerome-capelle-ingenieur-full-stack.pdf"><i data-lucide="file-down"></i></a>
+        <a class="btn btn-lg btn-circle btn-outline bg-[#334155] text-white hover:bg-[#d4e6e3] hover:text-[#334155] border border-[#334155]" href="./sombre.html"><i data-lucide="moon-star"></i></a>
     </div>
 
     <script>
