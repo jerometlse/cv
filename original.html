@@ -5,405 +5,689 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CV - Jérôme CAPELLE - Ingénieur Full Stack</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Sora:wght@400;700;800&family=Inter:wght@300;400;600&display=swap"
-        rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
-    <link rel="icon" type="image/png" sizes="16x16" href="./favicon-16x16.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --sand: #EAE0C8;
+            --onyx: #111111;
+            --flame: #FF3800;
+            --text: #111111;
+            --soft: rgba(255, 255, 255, 0.92);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
         body {
-            font-family: 'Inter', sans-serif;
-            color: #1e293b;
-            background-color: #d4e6e359;
+            margin: 0;
+            min-height: 100%;
         }
 
-        h1,
-        h2,
-        h3 {
-            font-family: 'Sora', sans-serif;
+        body {
+            background: white;
+            color: var(--text);
+            font-family: 'Space Grotesk', sans-serif;
+            line-height: 1.6;
         }
 
-        .bento-card {
-            background: #d4e6e3;
-            border: 1px solid #334155;
-            border-radius: 1.5rem;
-            padding: 1.25rem;
-            transition: all 0.3s ease;
-            color: #334155;
+        img {
+            display: block;
+            max-width: 100%;
         }
 
-        .accent-text {
-            color: #29b8a5;
+        .page-shell {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 2rem;
         }
 
-        /* Portrait style */
-        .profile-photo {
-            width: 140px;
-            height: 140px;
-            border-radius: 1.2rem;
+        .brutalist-page {
+            position: relative;
+            overflow: hidden;
+            border: 8px solid var(--onyx);
+            background: var(--sand);
+        }
+
+        .texture-overlay {
+            position: absolute;
+            inset: 0;
+            background-image: url('https://images.unsplash.com/photo-1616410731309-4e07df6b5d42?auto=format&w=1280&q=20&fit=crop');
+            background-size: cover;
+            opacity: 0.08;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .banner {
+            display: grid;
+            grid-template-columns: 2.2fr 1fr;
+            gap: 0;
+            min-height: 520px;
+            border-bottom: 8px solid var(--onyx);
+        }
+
+        .hero {
+            position: relative;
+            padding: 3.2rem 3rem 2.5rem;
+            background: var(--sand);
+        }
+
+        .hero-flag {
+            position: absolute;
+            top: 2rem;
+            left: 2rem;
+            background: var(--onyx);
+            color: var(--sand);
+            padding: 0.75rem 1.4rem;
+            font-family: 'Anton', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            font-size: 0.82rem;
+            transform: rotate(-2deg);
+            z-index: 2;
+        }
+
+        .hero-title {
+            margin: 0;
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(5.5rem, 9vw, 10rem);
+            line-height: 0.84;
+            text-transform: uppercase;
+            letter-spacing: -0.05em;
+            color: var(--sand);
+            position: relative;
+            z-index: 2;
+            display: inline-block;
+            max-width: min(100%, 18ch);
+        }
+
+        .hero-title span {
+            display: block;
+            line-height: 0.9;
+        }
+
+        .hero-title span:first-child {
+            margin-bottom: 0.05em;
+        }
+
+        .hero-title::before {
+            content: '';
+            position: absolute;
+            top: -1.4rem;
+            left: -2rem;
+            width: calc(100% + 4rem);
+            height: 6.5rem;
+            background: var(--onyx);
+            transform: rotate(-2deg);
+            z-index: -1;
+        }
+
+        .hero-subtitle {
+            margin: 1rem 0 1.5rem;
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(1.75rem, 2vw, 2.6rem);
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+            color: var(--text);
+        }
+
+        .hero-copy {
+            max-width: 44rem;
+            font-size: 1.02rem;
+            color: #1d1811;
+        }
+
+        .hero-copy .highlight {
+            display: inline-block;
+            background: rgba(255, 56, 0, 0.12);
+            color: var(--onyx);
+            padding: 0.15rem 0.4rem;
+            border-radius: 0.45rem;
+            font-weight: 700;
+        }
+
+        .hero-cta {
+            margin-top: 0;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            border-top: none;
+            background: var(--onyx);
+            color: var(--sand);
+        }
+
+        .hero-cta > div {
+            padding: 1.25rem 1rem;
+            border-right: 4px solid rgba(234, 224, 200, 0.22);
+        }
+
+        .hero-cta > div:last-child {
+            border-right: none;
+        }
+
+        .hero-cta small {
+            display: block;
+            font-size: 0.7rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--flame);
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-cta strong {
+            display: block;
+            font-size: 1rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            color: var(--sand);
+        }
+
+        .marquee-band {
+            overflow: hidden;
+            background: var(--flame);
+            border-bottom: 8px solid var(--onyx);
+        }
+
+        .marquee-track {
+            display: flex;
+            align-items: center;
+            width: fit-content;
+            animation: marquee 18s linear infinite;
+        }
+
+        .marquee-item {
+            white-space: nowrap;
+            display: inline-flex;
+            align-items: center;
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(2.4rem, 3vw, 4rem);
+            font-weight: 900;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            padding: 1.5rem 3rem;
+            line-height: 1;
+        }
+
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        .portrait-panel {
+            position: relative;
+            background: var(--onyx);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2.5rem;
+        }
+
+        .portrait-frame {
+            position: relative;
+            width: min(100%, 340px);
+            aspect-ratio: 4 / 5;
+            background: var(--sand);
+            border: 4px solid var(--onyx);
+            box-shadow: 12px 12px 0 0 var(--onyx);
+            overflow: hidden;
+        }
+
+        .portrait-frame img {
+            width: 100%;
+            height: 100%;
             object-fit: cover;
-            object-position: center 20%;
-            filter: grayscale(100%) contrast(110%);
-            border: 1px solid #334155;
+        }
+
+        .portrait-badge {
+            position: absolute;
+            bottom: 1.5rem;
+            right: -1rem;
+            background: var(--flame);
+            color: #fff;
+            font-family: 'Anton', sans-serif;
+            padding: 0.75rem 1.3rem;
+            font-size: 1.85rem;
+            transform: rotate(-12deg);
+            border: 2px solid var(--onyx);
+            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+        }
+
+        .main-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            padding: 2.5rem 3rem 3rem;
+        }
+
+        .main-column,
+        .sidebar {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .section-card {
+            background: rgba(255, 255, 255, 0.94);
+            border: 8px solid var(--onyx);
+            padding: 2rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 0 0 1.5rem;
+        }
+
+        .section-title h2 {
+            margin: 0;
+            font-family: 'Anton', sans-serif;
+            font-size: 2.25rem;
+            text-transform: uppercase;
+            letter-spacing: 0.14em;
+        }
+
+        .section-title .line {
+            flex: 1;
+            height: 2px;
+            background: var(--onyx);
+        }
+
+        .experience {
+            display: grid;
+            gap: 1.5rem;
+        }
+
+        .experience-item {
+            display: grid;
+            gap: 1rem;
+            padding: 1.6rem;
+            border: 4px solid rgba(17, 17, 17, 0.16);
+        }
+
+        .experience-meta {
+            display: grid;
+            gap: 0.4rem;
+        }
+
+        .job-title,
+        .company-name {
+            margin: 0;
+        }
+
+        .job-title {
+            color: var(--flame);
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            font-size: 0.98rem;
+        }
+
+        .company-name {
+            font-weight: 900;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .job-details {
+            margin: 0;
+            color: #332d23;
+            font-size: 0.96rem;
+            line-height: 1.75;
+        }
+
+        .job-list {
+            margin: 1rem 0 0;
+            padding: 0;
+            list-style: none;
+            display: grid;
+            gap: 0.9rem;
+        }
+
+        .job-list strong {
+            display: block;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .job-list span {
+            display: block;
+            margin-left: 1rem;
+            color: #4b4136;
+            font-size: 0.92rem;
+        }
+
+        .job-list .job-meta {
+            margin-left: 1rem;
+            font-size: 0.82rem;
+            color: #615443;
+            letter-spacing: 0.02em;
+            text-transform: uppercase;
+        }
+
+        .sidebar {
+            gap: 1.5rem;
+        }
+
+        .sidebar-card {
+            background: #1c1813;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 1.4rem;
+            display: grid;
+            gap: 1rem;
+        }
+
+        .sidebar-card strong {
+            display: block;
+            font-size: 0.95rem;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 0.35rem;
+        }
+
+        .sidebar-card p {
+            margin: 0;
+            color: #e2d6b8;
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        .sidebar-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.75rem 1rem;
+            background: rgba(255, 56, 0, 0.12);
+            color: #f2e8cf;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            border-radius: 999px;
+        }
+
+        .footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 1rem;
+            padding: 2rem 3rem 2.5rem;
+        }
+
+        .footer h2 {
+            margin: 0;
+            font-family: 'Anton', sans-serif;
+            font-size: 2.3rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .footer small {
+            color: #4b3f2f;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .footer-deco {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+        }
+
+        .barcode {
+            width: 58px;
+            height: 18px;
+            background: repeating-linear-gradient(90deg, var(--onyx) 0 4px, transparent 4px 6px);
+        }
+
+        @media (max-width: 980px) {
+            .banner,
+            .main-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-cta {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
         }
 
         @media print {
             body {
-                background-color: #fff;
-                color: #1e293b;
+                background: #fff;
+                color: #000;
                 -webkit-print-color-adjust: exact;
                 print-color-adjust: exact;
             }
 
-            .bento-card {
-                border: 1px solid #334155;
-                background: #d4e6e3 !important;
-                color: #334155 !important;
-                break-inside: avoid;
-                box-shadow: none;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
+            .brutalist-page,
+            .hero,
+            .portrait-panel,
+            .section-card,
+            .sidebar-card {
+                background: #fff !important;
+                color: #000 !important;
+                border-color: #000 !important;
+                box-shadow: none !important;
             }
 
-            .accent-text {
-                color: #29b8a5 !important;
-            }
-
-            .profile-photo {
-                filter: none;
-                border-color: #334155;
-            }
-
-            /* Keep first two header cards side-by-side when printing */
-            header {
-                display: grid !important;
-                grid-template-columns: 2fr 1fr !important;
-                gap: 1.5rem !important;
-                page-break-inside: avoid;
-                break-inside: avoid;
-            }
-
-            header>.bento-card {
-                break-inside: avoid;
-                page-break-inside: avoid;
-            }
-
-            /* Ensure portrait + name remain on the same line when printing */
-            header>.bento-card:first-child {
-                display: flex !important;
-                flex-direction: row !important;
-                align-items: center !important;
-                justify-content: flex-start !important;
-                gap: 1rem !important;
-            }
-
-            header>.bento-card:first-child .profile-photo {
-                width: 110px !important;
-                height: 110px !important;
-                flex-shrink: 0 !important;
-            }
-
-            /* Formations en colonnes imprimées : Formations + (Atouts + Langues) */
-            .formations-grid {
-                display: grid;
-                grid-template-columns: 2fr 1fr;
-                grid-template-rows: 1fr 1fr;
-                column-gap: 1rem;
-                row-gap: 0.5rem; /* espacement unifié */
-                align-items: stretch; /* alignement du bas sur toute la zone */
-            }
-
-            .formations-grid > .bento-card {
-                display: flex;
-                flex-direction: column;
-                justify-content: space-between;
-            }
-
-            /* Atouts/Langues : garder contenu collé sous le h3 en haut de la carte */
-            .formations-grid > .bento-card:nth-child(2),
-            .formations-grid > .bento-card:nth-child(3) {
-                justify-content: flex-start;
-            }
-
-            .formations-grid > .bento-card:nth-child(2) h3 + div,
-            .formations-grid > .bento-card:nth-child(3) h3 + div {
-                margin-top: 0.8rem;
-            }
-
-            .formations-grid > .bento-card:nth-child(1) {
-                grid-column: 1 / 2;
-                grid-row: 1 / 3;
-            }
-
-            .formations-grid > .bento-card:nth-child(2) {
-                grid-column: 2 / 3;
-                grid-row: 1 / 2;
-            }
-
-            .formations-grid > .bento-card:nth-child(3) {
-                grid-column: 2 / 3;
-                grid-row: 2 / 3;
+            .hero-flag,
+            .marquee-band,
+            .sidebar-card strong {
+                background: transparent !important;
+                color: #000 !important;
             }
         }
     </style>
 </head>
 
-<body class="p-4 md:p-8">
+<body>
+    <div class="page-shell">
+        <article class="brutalist-page">
+            <div class="texture-overlay"></div>
+            <div class="content">
+                <header class="banner">
+                    <section class="hero">
+                        <div class="hero-flag">JÉRÔME CAPELLE</div>
+                        <h1 class="hero-title"><span>JÉRÔME</span><span>CAPELLE</span></h1>
+                        <p class="hero-subtitle">Ingénieur Full Stack</p>
+                        <p class="hero-copy">
+                            Expert avec <span class="highlight">15 ans d'expérience</span> dans la conception
+                            d'applications web critiques. Spécialisé en architectures backend
+                            (Python / Django, Symfony) et interfaces modernes (Vue.js / Nuxt) pour de grands comptes.
+                        </p>
+                    </section>
 
-    <div class="max-w-5xl mx-auto space-y-4">
+                    <aside class="portrait-panel">
+                        <div class="portrait-frame">
+                            <img src="portrait.jpg" alt="Portrait de Jérôme Capelle">
+                            <div class="portrait-badge">15ans EXP</div>
+                        </div>
+                    </aside>
+                </header>
 
-        <header class="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div class="md:col-span-2 bento-card flex flex-col md:flex-row items-center gap-5">
-                <div class="w-30">
-                    <img src="portrait.jpg" alt="Portrait de Jérôme Capelle" class="profile-photo">
-                </div>
-                <div>
-                    <h1 class="text-4xl md:text-5xl font-extrabold mb-2">Jérôme <span class="accent-text">CAPELLE</span>
-                    </h1>
-                    <p class="text-xl font-semibold text-slate-600 mb-4">Ingénieur Développement Full Stack</p>
-                </div>
-            </div>
-
-            <div class="bento-card space-y-3 text-[11px]">
-                <div class="flex items-center gap-2"><i data-lucide="map-pin-house" class="accent-text w-4"></i> Gragnague
-                    (31)</div>
-                <div class="flex items-center gap-2"><i data-lucide="phone" class="accent-text w-4"></i> 06 16 49 40 25
-                </div>
-                <div class="flex items-center gap-2"><i data-lucide="mail" class="accent-text w-4"></i>
-                    jerome.capelle@gmail.com</div>
-                <div class="pt-1">
-                    <span class="bg-slate-700 px-3 py-1 rounded-full text-xs font-bold text-teal-400">50 ans</span>
-                    <span class="bg-slate-700 px-3 py-1 rounded-full text-xs font-bold text-teal-400">Permis B</span>
-                </div>
-            </div>
-        </header>
-
-        <div class="bento-card">
-            <p class="text-slate-500 leading-relaxed text-sm">
-                Expert avec 15 ans d'expérience dans la conception d’applications web critiques. Spécialisé en
-                architectures backend (Django, Symfony) et interfaces modernes (Vue.js, Nuxt) pour de grands comptes.
-            </p>
-        </div>
-
-        <section class="grid grid-cols-2 md:grid-cols-4 gap-3">
-            <div class="bento-card">
-                <div class="flex items-center gap-3 mb-2">
-                    <i data-lucide="database" class="accent-text w-5 h-5"></i>
-                    <h3 class="font-bold text-sm">Backend</h3>
-                </div>
-                <p class="text-xs text-slate-400 leading-tight">Python (Django), PHP (Symfony 3/4).</p>
-            </div>
-            <div class="bento-card">
-                <div class="flex items-center gap-3 mb-2">
-                    <i data-lucide="layout" class="accent-text w-5 h-5"></i>
-                    <h3 class="font-bold text-sm">Frontend</h3>
-                </div>
-                <p class="text-xs text-slate-400 leading-tight">Vue.js, Nuxt, Angular, Tailwind CSS, DaisyUI.</p>
-            </div>
-            <div class="bento-card">
-                <div class="flex items-center gap-3 mb-2">
-                    <i data-lucide="server" class="accent-text w-5 h-5"></i>
-                    <h3 class="font-bold text-sm">Data</h3>
-                </div>
-                <p class="text-xs text-slate-400 leading-tight">PostgreSQL, MSSQL, MariaDB, Talend ETL.</p>
-            </div>
-            <div class="bento-card">
-                <div class="flex items-center gap-3 mb-2">
-                    <i data-lucide="cloud" class="accent-text w-5 h-5"></i>
-                    <h3 class="font-bold text-sm">Cloud / Ops</h3>
-                </div>
-                <p class="text-xs text-slate-400 leading-tight">Google Cloud Platform, G Suite APIs, Docker.</p>
-            </div>
-        </section>
-
-        <div class="grid grid-cols-3 gap-4">
-            <div class="col-span-2 space-y-4">
-                <h2 class="text-2xl font-bold flex items-center gap-2 text-[#334155] mt-5">
-                    <i data-lucide="briefcase" class="accent-text"></i> Expériences
-                </h2>
-
-                <div class="bento-card space-y-4">
-                    <div>
-                        <h3 class="text-lg font-bold uppercase tracking-wide">CCL CONSULTING</h3>
-                        <p class="text-sm accent-text font-semibold">Ingénieur Full Stack | 2020 – Aujourd'hui</p>
+                <section class="marquee-band">
+                    <div class="marquee-track">
+                        <span class="marquee-item">Python • Django • PHP • Symfony • Vuejs • Nuxt • Tailwind CSS •PostgreSQL • Git •</span>
+                        <span class="marquee-item">Python • Django • PHP • Symfony • Vuejs • Nuxt • Tailwind CSS •PostgreSQL •  Git •</span>
                     </div>
-                    <ul class="text-sm space-y-4 text-slate-300">
-                        <li>
-                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
-                            <strong class="italic text-[#334155]">Safran Ventilation Systems</strong><br />
-                            <span class="text-slate-500 ml-3">Développement d'une application permettant de calculer la fiabilité des équipements fabriqués.</span>
-                            <div class="ml-4 mt-2 text-xs text-slate-400">
-                                Environnement : Python, Django, VueJs, Nuxt, Tailwind css, Daisyui, PostgresSQL, Git, VisualStudio code.
+                </section>
+
+                <section class="hero-cta">
+                    <div>
+                        <small>Localisation</small>
+                        <strong>GRAGNAGUE (31), FR</strong>
+                    </div>
+                    <div>
+                        <small>Téléphone</small>
+                        <strong>06 16 49 40 25</strong>
+                    </div>
+                    <div>
+                        <small>Email</small>
+                        <strong>JEROME.CAPELLE@GMAIL.COM</strong>
+                    </div>
+                    <div>
+                        <small>Détails</small>
+                        <strong>50 ANS • PERMIS B</strong>
+                    </div>
+                </section>
+
+                <div class="main-grid">
+                    <main class="main-column">
+                        <section class="section-card">
+                            <div class="section-title">
+                                <h2>Expériences</h2>
+                                <span class="line"></span>
                             </div>
-                        </li>
-                        <li>
-                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
-                            <strong class="italic text-[#334155]">Guidap</strong><br />
-                            <span class="text-slate-500 ml-3">Maintenance et évolution d’une application d’activité de plein air</span>
-                            <div class="ml-4 mt-2 text-xs text-slate-400">
-                                Environnement technique : PHP, Symfony 3.5, VueJs, MariaDB, PostgresSQL, Git, Docker, PHPStorm.
+
+                            <div class="experience">
+                                <article class="experience-item">
+                                    <div class="experience-meta">
+                                        <p class="job-title">Ingénieur Full Stack | 2020 – Aujourd'hui</p>
+                                        <p class="company-name">CCL CONSULTING</p>
+                                    </div>
+                                    <p class="job-details">Développement d'applications critiques, maintenance d'environnements industriels et automatisation de processus.</p>
+                                    <ul class="job-list">
+                                        <li>
+                                            <strong>Safran Ventilation Systems</strong>
+                                            <span>Développement d'une application de calcul de fiabilité des équipements.</span>
+                                            <span class="job-meta">Python, Django, Vue.js, Nuxt, PostgreSQL, Git.</span>
+                                        </li>
+                                        <li>
+                                            <strong>Guidap</strong>
+                                            <span>Maintenance et évolution d’une plateforme d’activités de plein air.</span>
+                                            <span class="job-meta">PHP, Symfony, Vue.js, MariaDB, Docker.</span>
+                                        </li>
+                                        <li>
+                                            <strong>Airbus</strong>
+                                            <span>Automatisation de la gestion du cycle de vie des comptes collaborateurs dans G Suite.</span>
+                                            <span class="job-meta">Python, Django, MSSQL, Google APIs, Angular.</span>
+                                        </li>
+                                    </ul>
+                                </article>
+
+                                <article class="experience-item">
+                                    <div class="experience-meta">
+                                        <p class="job-title">Ingénieur d'études | 2017 – 2020</p>
+                                        <p class="company-name">DÉCASOFT</p>
+                                    </div>
+                                    <p class="job-details">Développement et maintenance de sites critiques pour de grands comptes industriels.</p>
+                                    <ul class="job-list">
+                                        <li>
+                                            <strong>Airbus</strong>
+                                            <span>Maintenance de plusieurs sites internet critiques.</span>
+                                            <span class="job-meta">PHP, Symfony, Python, Angular, MSSQL.</span>
+                                        </li>
+                                        <li>
+                                            <strong>WS-Interactive</strong>
+                                            <span>Applications web B2B/B2C et plateformes clients.</span>
+                                            <span class="job-meta">PHP, CMS, HTML/CSS, JavaScript, MySQL.</span>
+                                        </li>
+                                    </ul>
+                                </article>
+
+                                <article class="experience-item">
+                                    <div class="experience-meta">
+                                        <p class="job-title">Ingénieur Développement | 2010 – 2017</p>
+                                        <p class="company-name">CELAD</p>
+                                    </div>
+                                    <p class="job-details">Gestion de flux de données B2B/B2C et développement de back-offices complexes.</p>
+                                    <ul class="job-list">
+                                        <li>
+                                            <strong>FRAM</strong>
+                                            <span>Création de back-offices et gestion de flux via Talend.</span>
+                                            <span class="job-meta">Symfony, Talend, DB2, SQL Server.</span>
+                                        </li>
+                                        <li>
+                                            <strong>Europa Organisation</strong>
+                                            <span>Application de gestion hôtelière et réservation.</span>
+                                            <span class="job-meta">Symfony2, AngularJS, PostgreSQL.</span>
+                                        </li>
+                                        <li>
+                                            <strong>Latécoère</strong>
+                                            <span>Maintien et évolution d'applications de gestion interne.</span>
+                                            <span class="job-meta">PHP, HTML/CSS, jQuery, ExtJS.</span>
+                                        </li>
+                                    </ul>
+                                </article>
                             </div>
-                        </li>
-                        <li>
-                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
-                            <strong class="italic text-[#334155]">Airbus</strong><br />
-                            <span class="text-slate-500 ml-3">Automatisation et gestion du cycle de vie des comptes des collaborateurs dans G Suite</span>
-                            <div class="ml-4 mt-2 text-xs text-slate-400">
-                                Environnement technique : Python, Django, MSSQL, Angular, TypeScript, HTML/CSS, Google Api, RabbitMq, DevExtreme, App Engine, Datastore, PhpStorm, Sublime Text, Visual Studio Code, PyCharm, Git.
+                        </section>
+
+                        <section class="section-card">
+                            <div class="section-title">
+                                <h2>Formation</h2>
+                                <span class="line"></span>
                             </div>
-                        </li>
-                    </ul>
+                            <div class="experience-item">
+                                <p class="company-name">Angular Framework</p>
+                                <p class="job-meta">AELION | 2021</p>
+                            </div>
+                            <div class="experience-item">
+                                <p class="company-name">Symfony 2</p>
+                                <p class="job-meta">Sensio Labs | 2014</p>
+                            </div>
+                            <div class="experience-item">
+                                <p class="company-name">DRU / Maîtrise Chimie</p>
+                                <p class="job-meta">Université Toulouse | 2000 – 2001</p>
+                            </div>
+                        </section>
+                    </main>
+
+                    <aside class="sidebar">
+                        <section class="sidebar-card">
+                            <h3>Arsenal</h3>
+                            <p><strong>Backend</strong><br>Python (Django), PHP (Symfony 3/4).</p>
+                            <p><strong>Frontend</strong><br>Vue.js, Nuxt, Angular, Tailwind CSS.</p>
+                            <p><strong>Data</strong><br>PostgreSQL, MSSQL, MariaDB, Talend.</p>
+                            <p><strong>Cloud / Ops</strong><br>Google Cloud, Docker, G Suite APIs.</p>
+                        </section>
+
+                        <section class="sidebar-card">
+                            <h3>Personnalité</h3>
+                            <p class="sidebar-pill">Adaptabilité</p>
+                            <p class="sidebar-pill">Perfectionnisme</p>
+                            <p class="sidebar-pill">Rigueur</p>
+                        </section>
+
+                        <section class="sidebar-card">
+                            <h3>Langues</h3>
+                            <p class="sidebar-pill">Français — Maternelle</p>
+                            <p class="sidebar-pill">Anglais — Technique</p>
+                        </section>
+                    </aside>
                 </div>
 
-                <div class="bento-card space-y-4">
+                <footer class="footer">
                     <div>
-                        <h3 class="text-lg font-bold uppercase tracking-wide">DÉCASOFT</h3>
-                        <p class="text-sm accent-text font-semibold">Ingénieur d'études | 2017 – 2020</p>
+                        <h2>Ingénieur Full Stack</h2>
+                        <small>© Jérôme Capelle 2024</small>
                     </div>
-                    <ul class="text-sm space-y-4 text-slate-300">
-                        <li>
-                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
-                            <strong class="italic text-[#334155]">Airbus</strong><br />
-                            <span class="text-slate-500 ml-3">Développement et maintenance de plusieurs sites internet pour les clients</span>
-                            <div class="ml-4 mt-2 text-xs text-slate-400">
-                                Environnement technique : PHP, Symfony 3, Python, Django, MSSQL, Google Api, RabbitMq, Angular, DevExtreme, PhpStorm, Sublime Text, Visual Studio Code,PyCharm, Git.
-                            </div>
-                        </li>
-                        <li>
-                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
-                            <strong class="italic text-[#334155]">WS-Interactive</strong><br />
-                            <span class="text-slate-500 ml-3">Développement et maintenance de plusieurs sites internet pour les clients</span>
-                            <div class="ml-4 mt-2 text-xs text-slate-400">
-                                Environnement technique : PHP, CMS Automne, HTML, CSS, JavaScript, MySQL, Git, Sublime Text, PHPMyAdmin.
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-
-                <div class="bento-card space-y-4">
-                    <div>
-                        <h3 class="text-lg font-bold uppercase tracking-wide">CELAD</h3>
-                        <p class="text-sm accent-text font-semibold">Ingénieur Développement | 2010 – 2017</p>
+                    <div class="footer-deco">
+                        <span class="barcode"></span>
+                        <span class="barcode"></span>
                     </div>
-                    
-                    <ul class="text-sm space-y-4 text-slate-300">
-                        <li>
-                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
-                            <strong class="italic text-[#334155]">FRAM</strong><br />
-                            <span class="text-slate-500 ml-3">Développement des plateformes B2B/B2C : réalisation de back-offices complexes sous Symfony et
-                            gestion de flux de données via Talend.</span>
-                            <div class="ml-4 mt-2 text-xs text-slate-400">
-                                Environnement technique : PHP, Symfony (1.4 & 2), CSS, JQuery, ZendStudio, SVN, ZendJobQueue, Talend Open Studio (ETL), base de données (DB2, SQL serveur et postgreSql)
-                            </div>
-                        </li>
-                        <li>
-                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
-                            <strong class="italic text-[#334155]">Europa Organisation</strong><br />
-                            <span class="text-slate-500 ml-3">Développement d'une application de gestion de chambre d'hôtel</span>
-                            <div class="ml-4 mt-2 text-xs text-slate-400">
-                                Environnement technique :  PHP, Symfony2, HTML/CSS, AngularJS, PostgreSQL, Git. Développement sous environnement Max & PhpStorm.
-                            </div>
-                        </li>
-                        <li>
-                            <div aria-label="success" class="status bg-[#29b8a5] mr-2"></div>
-                            <strong class="italic text-[#334155]">LATecis (groupe Latécoère)</strong><br />
-                            <span class="text-slate-500 ml-3">Développement et maintenance de plusieurs applications</span>
-                            <div class="ml-4 mt-2 text-xs text-slate-400">
-                                Environnement technique : php, HTML/CSS, Jquery, ExtJs, postgreSql.
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-                <div class="bento-card space-y-4">
-                    <div>
-                        <h3 class="text-lg font-bold uppercase tracking-wide">PCKADO</h3>
-                        <p class="text-sm accent-text font-semibold">Développeur informatique | 2006 – 2009</p>
-                    </div>
-                    <ul class="text-sm space-y-4 text-slate-300">
-                        <li>
-                            <span class="text-slate-500 mt-2">
-                                Réalisation de fonctionnalités pour l'intranet et les sites internet de e-commerce de l'entreprise
-                            </span>
-                        </li>
-                    </ul>
-                </div>
+                </footer>
             </div>
-
-            <div class="formations-grid col-span-1 space-y-4">
-                <h2 class="text-2xl font-bold flex items-center gap-2 text-[#334155] mt-5">
-                    <i data-lucide="graduation-cap" class="accent-text"></i> Formations
-                </h2>
-                <div class="bento-card space-y-3">
-                    <div>
-                        <p class="font-bold text-sm text-slate-500">Angular - Découvrir le framework</p>
-                        <p class="text-xs text-slate-400">AELION Toulouse | 2021</p>
-                    </div>
-                    <div>
-                        <p class="font-bold text-sm text-slate-500">Symfony 2</p>
-                        <p class="text-xs text-slate-400">Sensio Labs | 2014</p>
-                    </div>
-                    <div>
-                        <p class="font-bold text-sm text-slate-500">Développement JAVA/J2EE</p>
-                        <p class="text-xs text-slate-400">CRP Consulting Balma | 2009</p>
-                    </div>
-                    <div>
-                        <p class="font-bold text-sm text-slate-500">Développeur Informatique (Option Client/Serveur)</p>
-                        <p class="text-xs text-slate-400">AFPA Toulouse | 2005</p>
-                    </div>
-                    <div>
-                        <p class="font-bold text-sm text-slate-500">Diplôme de Recherche Universitaire</p>
-                        <p class="text-xs text-slate-400">INP-ENSIACET au sein du laboratoire de chimie Agro-industrielle Toulouse | 2001</p>
-                    </div>
-                    <div>
-                        <p class="font-bold text-sm text-slate-500">Maîtrise de Chimie</p>
-                        <p class="text-xs text-slate-400">Université Paul Sabatier Toulouse | 2000</p>
-                    </div>
-                </div>
-
-                <div class="bento-card">
-                    <h3 class="font-bold flex items-center text-[#334155]"><i data-lucide="sparkles" class="accent-text mr-2"></i>Atouts</h3>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span
-                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">ADAPTABILITÉ</span>
-                        <span
-                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">PERFECTIONNISME</span>
-                        <span
-                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">RIGUEUR</span>
-                    </div>
-                </div>
-                <div class="bento-card">
-                    <h3 class="font-bold flex items-center text-[#334155]"><i data-lucide="languages" class="accent-text mr-2"></i>Langues</h3>
-                    <div class="flex flex-wrap gap-2 mt-2">
-                        <span
-                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">Français – Langue Maternelle</span>
-                        <span
-                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">Anglais – Niveau Technique</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        </article>
     </div>
-
-    <div class="fab">
-        <!-- a focusable div with tabindex is necessary to work on all browsers. role="button" is necessary for accessibility -->
-        <div tabindex="0" role="button" class="btn btn-lg btn-circle bg-[#334155] text-white hover:bg-[#d4e6e3] hover:text-[#334155] border border-[#334155]">
-            <i data-lucide="settings"></i>
-        </div>
-
-        <div class="fab-close">
-        <span class="btn btn-circle btn-lg bg-[#d4e6e3] text-[#334155]">✕</span>
-        </div>
-
-        <!-- buttons that show up when FAB is open -->
-        <a class="btn btn-lg btn-circle btn-outline bg-[#334155] text-white hover:bg-[#d4e6e3] hover:text-[#334155] border border-[#334155]" target="_blank" href="./cv-jerome-capelle-ingenieur-full-stack.pdf"><i data-lucide="file-down"></i></a>
-        <a class="btn btn-lg btn-circle btn-outline bg-[#334155] text-white hover:bg-[#d4e6e3] hover:text-[#334155] border border-[#334155]" href="./sombre.html"><i data-lucide="moon-star"></i></a>
-    </div>
-
-    <script>
-        lucide.createIcons();
-    </script>
 </body>
 
 </html>
