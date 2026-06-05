@@ -132,7 +132,7 @@
 
         <header class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div class="md:col-span-2 bento-card flex flex-col md:flex-row items-center gap-5">
-                <div class="mask mask-squircle w-32">
+                <div class="w-30">
                 <img src="portrait.jpg" alt="Portrait de Jérôme Capelle" class="profile-photo">
                 </div>
                 <div>
@@ -143,7 +143,7 @@
             </div>
 
             <div class="bento-card space-y-2 text-[11px]">
-                <div class="flex items-center gap-2"><i data-lucide="map-pin" class="accent-text w-4"></i> Gragnague
+                <div class="flex items-center gap-2"><i data-lucide="map-pin-house" class="accent-text w-4"></i> Gragnague
                     (31)</div>
                 <div class="flex items-center gap-2"><i data-lucide="phone" class="accent-text w-4"></i> 06 16 49 40 25
                 </div>
@@ -194,8 +194,8 @@
             </div>
         </section>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3">
-            <div class="md:col-span-2 space-y-4">
+        <div class="grid grid-cols-3 gap-3">
+            <div class="col-span-2 space-y-4">
                 <h2 class="text-2xl font-bold flex items-center gap-2 text-slate-800">
                     <i data-lucide="briefcase" class="accent-text"></i> Expériences
                 </h2>
@@ -232,8 +232,7 @@
                         </li>
                     </ul>
                 </div>
-            </div>
-            <div class="md:col-span-2 space-y-4 mt-5">
+
                 <div class="bento-card space-y-4">
                     <div>
                         <h3 class="text-lg font-bold uppercase tracking-wide">DÉCASOFT</h3>
@@ -308,44 +307,60 @@
                 </div>
             </div>
 
-            <aside class="space-y-4">
+            <div class="formations-grid col-span-1 space-y-4">
                 <h2 class="text-2xl font-bold flex items-center gap-2 text-slate-800">
                     <i data-lucide="graduation-cap" class="accent-text"></i> Formations
                 </h2>
-                <div class="formations-grid">
-                    <div class="bento-card space-y-5">
-                        <div>
-                            <p class="font-bold text-sm text-white">Angular</p>
-                            <p class="text-xs text-slate-400 text-teal-500 italic font-medium">Framework Modernization
-                                (2021)</p>
-                        </div>
-                        <div>
-                            <p class="font-bold text-sm text-white">Symfony 2</p>
-                            <p class="text-xs text-slate-400">Sensio Labs (2014)</p>
-                        </div>
-                        <div>
-                            <p class="font-bold text-sm text-white">Développeur Informatique</p>
-                            <p class="text-xs text-slate-400 italic">AFPA Toulouse (Option Client/Serveur)</p>
-                        </div>
-                        <div>
-                            <p class="font-bold text-sm text-white">Maîtrise de Chimie</p>
-                            <p class="text-xs text-slate-400">Université Paul Sabatier</p>
-                        </div>
-                    </div>
 
-                    <div class="bento-card">
-                        <h3 class="font-bold text-sm mb-3 uppercase tracking-wider text-white">Atouts</h3>
-                        <div class="flex flex-wrap gap-2">
-                            <span
-                                class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">ADAPTABILITÉ</span>
-                            <span
-                                class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">PERFECTIONNISME</span>
-                            <span
-                                class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">RIGUEUR</span>
-                        </div>
+                <div class="bento-card space-y-3">
+                    <div>
+                        <p class="font-bold text-sm text-white">Angular - Découvrir le framework</p>
+                        <p class="text-xs text-slate-400">AELION Toulouse | 2021</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-white">Symfony 2</p>
+                        <p class="text-xs text-slate-400">Sensio Labs | 2014</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-white">Développement JAVA/J2EE</p>
+                        <p class="text-xs text-slate-400">CRP Consulting Balma | 2009</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-white">Développeur Informatique (Option Client/Serveur)</p>
+                        <p class="text-xs text-slate-400">AFPA Toulouse | 2005</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-white">Diplôme de Recherche Universitaire</p>
+                        <p class="text-xs text-slate-400">INP-ENSIACET au sein du laboratoire de chimie Agro-industrielle Toulouse | 2001</p>
+                    </div>
+                    <div>
+                        <p class="font-bold text-sm text-white">Maîtrise de Chimie</p>
+                        <p class="text-xs text-slate-400">Université Paul Sabatier Toulouse | 2000</p>
                     </div>
                 </div>
-            </aside>
+
+                <div class="bento-card">
+                    <h3 class="font-bold flex items-center text-white"><i data-lucide="sparkles" class="accent-text"></i>Atouts</h3>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span
+                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">ADAPTABILITÉ</span>
+                        <span
+                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">PERFECTIONNISME</span>
+                        <span
+                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">RIGUEUR</span>
+                    </div>
+                </div>
+                <div class="bento-card">
+                    <h3 class="font-bold flex items-center text-white"><i data-lucide="languages" class="accent-text"></i>Langues</h3>
+                    <div class="flex flex-wrap gap-2 mt-2">
+                        <span
+                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">Français – Langue Maternelle</span>
+                        <span
+                            class="bg-slate-700 px-3 py-1 rounded-full text-[10px] font-bold text-teal-400">Anglais – Niveau Technique</span>
+                    </div>
+                </div>
+                
+            </div>
         </div>
     </div>
 
