@@ -4,689 +4,816 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV - Jérôme CAPELLE - Ingénieur Full Stack</title>
+    <title>CV – Jérôme CAPELLE – Ingénieur Full Stack</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Space+Grotesk:wght@300;400;500;700&family=IBM+Plex+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
     <style>
         :root {
-            --sand: #EAE0C8;
+            --sand: #E8DDBF;
             --onyx: #111111;
             --flame: #FF3800;
-            --text: #111111;
-            --soft: rgba(255, 255, 255, 0.92);
+            --dark-bg: #1A1510;
+            --card-bg: #E8DDBF;
+            --card-border: #111111;
+            --sidebar-bg: #1A1510;
+            --text-light: #E8DDBF;
+            --text-muted: #9A8A6A;
         }
 
         * {
             box-sizing: border-box;
-        }
-
-        html,
-        body {
             margin: 0;
-            min-height: 100%;
+            padding: 0;
         }
 
         body {
-            background: white;
-            color: var(--text);
+            background: #ffffff;
             font-family: 'Space Grotesk', sans-serif;
-            line-height: 1.6;
+            color: var(--text-light);
+            min-height: 100vh;
         }
 
-        img {
-            display: block;
-            max-width: 100%;
-        }
-
-        .page-shell {
-            max-width: 1280px;
+        .page-wrap {
+            max-width: 900px;
             margin: 0 auto;
-            padding: 2rem;
+            background: var(--dark-bg);
+            border: 3px solid #333;
         }
 
-        .brutalist-page {
+        /* ─── HEADER ─── */
+        .header {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            background: var(--sand);
+            min-height: 340px;
             position: relative;
             overflow: hidden;
-            border: 8px solid var(--onyx);
-            background: var(--sand);
         }
 
-        .texture-overlay {
-            position: absolute;
-            inset: 0;
-            background-image: url('https://images.unsplash.com/photo-1616410731309-4e07df6b5d42?auto=format&w=1280&q=20&fit=crop');
-            background-size: cover;
-            opacity: 0.08;
-            pointer-events: none;
+        .header-left {
+            padding: 0 2rem 1.8rem;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+        }
+
+        .name-block {
+            position: relative;
+            display: inline-block;
+            background: var(--onyx);
+            padding: 1.2rem 1.6rem 1.2rem 1.2rem;
+            margin-left: -2rem;
+            margin-top: 0;
+        }
+
+        .hero-name {
+            font-family: 'Anton', sans-serif;
+            font-size: clamp(4.5rem, 10vw, 8rem);
+            line-height: 0.88;
+            text-transform: uppercase;
+            letter-spacing: -0.03em;
+            color: var(--sand);
+            position: relative;
             z-index: 1;
         }
 
-        .content {
-            position: relative;
-            z-index: 2;
-        }
-
-        .banner {
-            display: grid;
-            grid-template-columns: 2.2fr 1fr;
-            gap: 0;
-            min-height: 520px;
-            border-bottom: 8px solid var(--onyx);
-        }
-
-        .hero {
-            position: relative;
-            padding: 3.2rem 3rem 2.5rem;
-            background: var(--sand);
-        }
-
-        .hero-flag {
-            position: absolute;
-            top: 2rem;
-            left: 2rem;
-            background: var(--onyx);
-            color: var(--sand);
-            padding: 0.75rem 1.4rem;
-            font-family: 'Anton', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            font-size: 0.82rem;
-            transform: rotate(-2deg);
-            z-index: 2;
-        }
-
-        .hero-title {
-            margin: 0;
-            font-family: 'Anton', sans-serif;
-            font-size: clamp(5.5rem, 9vw, 10rem);
-            line-height: 0.84;
-            text-transform: uppercase;
-            letter-spacing: -0.05em;
-            color: var(--sand);
-            position: relative;
-            z-index: 2;
-            display: inline-block;
-            max-width: min(100%, 18ch);
-        }
-
-        .hero-title span {
+        .hero-name span {
             display: block;
-            line-height: 0.9;
-        }
-
-        .hero-title span:first-child {
-            margin-bottom: 0.05em;
-        }
-
-        .hero-title::before {
-            content: '';
-            position: absolute;
-            top: -1.4rem;
-            left: -2rem;
-            width: calc(100% + 4rem);
-            height: 6.5rem;
-            background: var(--onyx);
-            transform: rotate(-2deg);
-            z-index: -1;
         }
 
         .hero-subtitle {
-            margin: 1rem 0 1.5rem;
             font-family: 'Anton', sans-serif;
-            font-size: clamp(1.75rem, 2vw, 2.6rem);
-            letter-spacing: 0.16em;
+            font-size: 1.3rem;
+            letter-spacing: 0.2em;
             text-transform: uppercase;
-            color: var(--text);
-        }
-
-        .hero-copy {
-            max-width: 44rem;
-            font-size: 1.02rem;
-            color: #1d1811;
-        }
-
-        .hero-copy .highlight {
-            display: inline-block;
-            background: rgba(255, 56, 0, 0.12);
             color: var(--onyx);
-            padding: 0.15rem 0.4rem;
-            border-radius: 0.45rem;
+            border-bottom: 3px solid var(--onyx);
+            padding-bottom: 0.4rem;
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .hero-summary {
+            font-size: 0.9rem;
+            line-height: 1.65;
+            color: #2a2018;
+            max-width: 38rem;
+        }
+
+        .hero-summary .hl {
+            background: var(--flame);
+            color: #fff;
+            padding: 0.05rem 0.35rem;
             font-weight: 700;
         }
 
-        .hero-cta {
-            margin-top: 0;
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
-            border-top: none;
-            background: var(--onyx);
-            color: var(--sand);
-        }
-
-        .hero-cta > div {
-            padding: 1.25rem 1rem;
-            border-right: 4px solid rgba(234, 224, 200, 0.22);
-        }
-
-        .hero-cta > div:last-child {
-            border-right: none;
-        }
-
-        .hero-cta small {
-            display: block;
-            font-size: 0.7rem;
-            letter-spacing: 0.22em;
-            text-transform: uppercase;
-            color: var(--flame);
-            margin-bottom: 0.75rem;
-        }
-
-        .hero-cta strong {
-            display: block;
-            font-size: 1rem;
-            font-weight: 800;
-            text-transform: uppercase;
-            color: var(--sand);
-        }
-
-        .marquee-band {
-            overflow: hidden;
-            background: var(--flame);
-            border-bottom: 8px solid var(--onyx);
-        }
-
-        .marquee-track {
-            display: flex;
-            align-items: center;
-            width: fit-content;
-            animation: marquee 18s linear infinite;
-        }
-
-        .marquee-item {
-            white-space: nowrap;
-            display: inline-flex;
-            align-items: center;
-            font-family: 'Anton', sans-serif;
-            font-size: clamp(2.4rem, 3vw, 4rem);
-            font-weight: 900;
-            color: #fff;
-            text-transform: uppercase;
-            letter-spacing: 0.18em;
-            padding: 1.5rem 3rem;
-            line-height: 1;
-        }
-
-        @keyframes marquee {
-            from {
-                transform: translateX(0);
-            }
-            to {
-                transform: translateX(-50%);
-            }
-        }
-
-        .portrait-panel {
+        /* Right panel: dark + polka dots */
+        .header-right {
             position: relative;
-            background: var(--onyx);
+            background: #1a1510;
+            overflow: hidden;
             display: flex;
-            justify-content: center;
             align-items: center;
-            padding: 2.5rem;
+            justify-content: center;
+        }
+
+        /* Polka dot texture */
+        .header-right::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, #3a3020 1.5px, transparent 1.5px);
+            background-size: 18px 18px;
+            opacity: 0.9;
+            z-index: 0;
+        }
+
+        .portrait-wrap {
+            position: relative;
+            z-index: 1;
+            width: 200px;
         }
 
         .portrait-frame {
-            position: relative;
-            width: min(100%, 340px);
-            aspect-ratio: 4 / 5;
-            background: var(--sand);
-            border: 4px solid var(--onyx);
-            box-shadow: 12px 12px 0 0 var(--onyx);
+            width: 200px;
+            height: 240px;
             overflow: hidden;
+            position: relative;
         }
 
         .portrait-frame img {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            object-position: top center;
+            filter: grayscale(100%) contrast(1.05);
         }
 
         .portrait-badge {
             position: absolute;
-            bottom: 1.5rem;
-            right: -1rem;
+            bottom: 1.2rem;
+            right: -0.5rem;
             background: var(--flame);
             color: #fff;
             font-family: 'Anton', sans-serif;
-            padding: 0.75rem 1.3rem;
-            font-size: 1.85rem;
-            transform: rotate(-12deg);
-            border: 2px solid var(--onyx);
-            box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.2);
+            font-size: 1.3rem;
+            padding: 0.4rem 0.9rem;
+            letter-spacing: 0.08em;
+            z-index: 2;
         }
 
-        .main-grid {
-            display: grid;
-            grid-template-columns: 2fr 1fr;
-            gap: 2rem;
-            padding: 2.5rem 3rem 3rem;
+        /* ─── MARQUEE ─── */
+        .marquee-band {
+            background: var(--flame);
+            overflow: hidden;
+            border-top: 3px solid var(--onyx);
+            border-bottom: 3px solid var(--onyx);
         }
 
-        .main-column,
-        .sidebar {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .section-card {
-            background: rgba(255, 255, 255, 0.94);
-            border: 8px solid var(--onyx);
-            padding: 2rem;
-        }
-
-        .section-title {
+        .marquee-track {
             display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin: 0 0 1.5rem;
+            width: fit-content;
+            animation: marquee 22s linear infinite;
         }
 
-        .section-title h2 {
-            margin: 0;
+        .marquee-item {
+            white-space: nowrap;
             font-family: 'Anton', sans-serif;
-            font-size: 2.25rem;
-            text-transform: uppercase;
-            letter-spacing: 0.14em;
-        }
-
-        .section-title .line {
-            flex: 1;
-            height: 2px;
-            background: var(--onyx);
-        }
-
-        .experience {
-            display: grid;
-            gap: 1.5rem;
-        }
-
-        .experience-item {
-            display: grid;
-            gap: 1rem;
-            padding: 1.6rem;
-            border: 4px solid rgba(17, 17, 17, 0.16);
-        }
-
-        .experience-meta {
-            display: grid;
-            gap: 0.4rem;
-        }
-
-        .job-title,
-        .company-name {
-            margin: 0;
-        }
-
-        .job-title {
-            color: var(--flame);
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            font-size: 0.98rem;
-        }
-
-        .company-name {
-            font-weight: 900;
-            font-size: 1rem;
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-        }
-
-        .job-details {
-            margin: 0;
-            color: #332d23;
-            font-size: 0.96rem;
-            line-height: 1.75;
-        }
-
-        .job-list {
-            margin: 1rem 0 0;
-            padding: 0;
-            list-style: none;
-            display: grid;
-            gap: 0.9rem;
-        }
-
-        .job-list strong {
-            display: block;
-            font-weight: 800;
-            text-transform: uppercase;
-            letter-spacing: 0.06em;
-        }
-
-        .job-list span {
-            display: block;
-            margin-left: 1rem;
-            color: #4b4136;
-            font-size: 0.92rem;
-        }
-
-        .job-list .job-meta {
-            margin-left: 1rem;
-            font-size: 0.82rem;
-            color: #615443;
-            letter-spacing: 0.02em;
-            text-transform: uppercase;
-        }
-
-        .sidebar {
-            gap: 1.5rem;
-        }
-
-        .sidebar-card {
-            background: #1c1813;
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 1.4rem;
-            display: grid;
-            gap: 1rem;
-        }
-
-        .sidebar-card strong {
-            display: block;
-            font-size: 0.95rem;
+            font-size: 1.9rem;
             color: #fff;
             text-transform: uppercase;
-            letter-spacing: 0.08em;
-            margin-bottom: 0.35rem;
+            letter-spacing: 0.16em;
+            padding: 0.7rem 2.5rem;
         }
 
-        .sidebar-card p {
-            margin: 0;
-            color: #e2d6b8;
-            font-size: 0.92rem;
-            line-height: 1.65;
+        @keyframes marquee {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
         }
 
-        .sidebar-pill {
-            display: inline-flex;
+        /* ─── CONTACT BAR ─── */
+        .contact-bar {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            background: var(--onyx);
+            border-bottom: 2px solid #333;
+        }
+
+        .contact-item {
+            padding: 0.9rem 1rem;
+            border-left: 1px solid #444;
+        }
+
+        .contact-item:first-child {
+            border-left: none;
+        }
+
+        .contact-item small {
+            display: block;
+            font-size: 0.62rem;
+            letter-spacing: 0.22em;
+            text-transform: uppercase;
+            color: var(--flame);
+            margin-bottom: 0.3rem;
+        }
+
+        .contact-item strong {
+            font-size: 0.82rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--sand);
+        }
+
+        /* ─── BODY GRID ─── */
+        .body-grid {
+            display: grid;
+            grid-template-columns: 1fr 260px;
+        }
+
+        /* ─── MAIN COLUMN ─── */
+        .main-col {
+            padding: 1.8rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            border-right: 2px solid #2e2518;
+        }
+
+        .section-heading {
+            display: flex;
             align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.2rem;
+        }
+
+        .section-heading h2 {
+            font-family: 'Anton', sans-serif;
+            font-size: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--sand);
+        }
+
+        .section-heading .arrow-icon {
+            font-size: 1.4rem;
+            color: var(--flame);
+        }
+
+        /* ─── EXPERIENCE CARDS ─── */
+        .exp-card {
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
+            padding: 1.2rem 1.4rem;
+            color: var(--onyx);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .exp-card:last-child {
+            margin-bottom: 0;
+        }
+
+        .exp-card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .exp-company {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--onyx);
+        }
+
+        .exp-clients {
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            color: #555;
+            text-align: right;
+        }
+
+        .exp-role {
+            color: var(--flame);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-bottom: 0.8rem;
+        }
+
+        .exp-missions {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid rgba(17, 17, 17, 0.2);
+            padding-left: 0.8rem;
+        }
+
+        .exp-missions li {
+            font-size: 0.85rem;
+            line-height: 1.55;
+            color: #2a2018;
+        }
+
+        .exp-missions li strong {
+            font-weight: 800;
+            text-transform: uppercase;
+            font-size: 0.78rem;
+            letter-spacing: 0.05em;
+        }
+
+        .exp-missions li em {
+            font-style: normal;
+            color: #444;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.35rem;
+        }
+
+        .tech-tag {
+            background: var(--onyx);
+            color: var(--sand);
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.68rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            padding: 0.28rem 0.65rem;
+        }
+
+        /* ─── FORMATION CARD ─── */
+        .formation-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+
+        .formation-item {
+            background: var(--card-bg);
+            border: 2px solid var(--card-border);
             padding: 0.75rem 1rem;
-            background: rgba(255, 56, 0, 0.12);
-            color: #f2e8cf;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: var(--onyx);
+            border-left: 5px solid var(--flame);
+        }
+
+        .formation-item strong {
+            font-family: 'Anton', sans-serif;
+            font-size: 0.95rem;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .formation-item span {
+            font-size: 0.72rem;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            border-radius: 999px;
+            color: #555;
         }
 
+        /* ─── SIDEBAR ─── */
+        .sidebar {
+            background: var(--sidebar-bg);
+            padding: 1.8rem 1.4rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+        }
+
+        .sb-section h3 {
+            font-family: 'Anton', sans-serif;
+            font-size: 1.35rem;
+            text-transform: uppercase;
+            letter-spacing: 0.18em;
+            color: var(--flame);
+            margin-bottom: 0.9rem;
+            font-style: italic;
+        }
+
+        /* Arsenal cards */
+        .arsenal-item {
+            background: #ffffff;
+            border: 2px solid var(--onyx);
+            padding: 0.75rem 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .arsenal-item-header {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.4rem;
+        }
+
+        .arsenal-icon {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.8rem;
+            font-weight: 700;
+            color: var(--flame);
+        }
+
+        .arsenal-content strong {
+            display: block;
+            font-size: 0.82rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--onyx);
+        }
+
+        .arsenal-content span {
+            font-size: 0.82rem;
+            color: var(--onyx);
+            line-height: 1.5;
+        }
+
+        /* Formation sidebar */
+        .sb-formation-item {
+            border-left: 3px solid var(--flame);
+            padding-left: 0.75rem;
+            margin-bottom: 0.7rem;
+        }
+
+        .sb-formation-item strong {
+            display: block;
+            font-size: 0.78rem;
+            font-weight: 800;
+            text-transform: uppercase;
+            letter-spacing: 0.07em;
+            color: var(--sand);
+        }
+
+        .sb-formation-item span {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        /* Personality pills */
+        .pill-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.45rem;
+        }
+
+        .pill {
+            background: #22180e;
+            border: 1px solid #3a2e1e;
+            color: var(--sand);
+            font-family: 'Anton', sans-serif;
+            font-size: 0.95rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            padding: 0.55rem 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .pill::before {
+            content: '▶';
+            color: var(--flame);
+            font-size: 0.6rem;
+        }
+
+        /* Langues */
+        .lang-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.45rem 0;
+            border-bottom: 1px solid #2e2518;
+        }
+
+        .lang-row:last-child {
+            border-bottom: none;
+        }
+
+        .lang-name {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.82rem;
+            letter-spacing: 0.1em;
+            color: var(--sand);
+        }
+
+        .lang-level {
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--flame);
+            font-weight: 700;
+        }
+
+        /* ─── FOOTER ─── */
         .footer {
+            background: var(--onyx);
+            padding: 1.8rem 2rem;
             display: flex;
             justify-content: space-between;
             align-items: flex-end;
-            gap: 1rem;
-            padding: 2rem 3rem 2.5rem;
+            border-top: 3px solid #333;
         }
 
-        .footer h2 {
-            margin: 0;
+        .footer-title {
             font-family: 'Anton', sans-serif;
-            font-size: 2.3rem;
+            font-size: clamp(2rem, 4vw, 3.2rem);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            line-height: 0.9;
+            color: var(--sand);
+        }
+
+        .footer-right {
+            text-align: right;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0.75rem;
+        }
+
+        .footer-copy {
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            letter-spacing: 0.16em;
+            color: var(--flame);
+            font-weight: 700;
+        }
+
+        .footer-scan {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.65rem;
+            color: #555;
             letter-spacing: 0.08em;
             text-transform: uppercase;
         }
 
-        .footer small {
-            color: #4b3f2f;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.12em;
-        }
-
-        .footer-deco {
+        .footer-icon {
+            width: 36px;
+            height: 36px;
+            border: 2px solid #444;
             display: flex;
-            gap: 0.75rem;
             align-items: center;
-        }
-
-        .barcode {
-            width: 58px;
-            height: 18px;
-            background: repeating-linear-gradient(90deg, var(--onyx) 0 4px, transparent 4px 6px);
-        }
-
-        @media (max-width: 980px) {
-            .banner,
-            .main-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .hero-cta {
-                grid-template-columns: 1fr 1fr;
-            }
-
-            .footer {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-        }
-
-        @media print {
-            body {
-                background: #fff;
-                color: #000;
-                -webkit-print-color-adjust: exact;
-                print-color-adjust: exact;
-            }
-
-            .brutalist-page,
-            .hero,
-            .portrait-panel,
-            .section-card,
-            .sidebar-card {
-                background: #fff !important;
-                color: #000 !important;
-                border-color: #000 !important;
-                box-shadow: none !important;
-            }
-
-            .hero-flag,
-            .marquee-band,
-            .sidebar-card strong {
-                background: transparent !important;
-                color: #000 !important;
-            }
+            justify-content: center;
+            color: var(--sand);
+            font-size: 1.2rem;
         }
     </style>
 </head>
 
 <body>
-    <div class="page-shell">
-        <article class="brutalist-page">
-            <div class="texture-overlay"></div>
-            <div class="content">
-                <header class="banner">
-                    <section class="hero">
-                        <div class="hero-flag">JÉRÔME CAPELLE</div>
-                        <h1 class="hero-title"><span>JÉRÔME</span><span>CAPELLE</span></h1>
-                        <p class="hero-subtitle">Ingénieur Full Stack</p>
-                        <p class="hero-copy">
-                            Expert avec <span class="highlight">15 ans d'expérience</span> dans la conception
-                            d'applications web critiques. Spécialisé en architectures backend
-                            (Python / Django, Symfony) et interfaces modernes (Vue.js / Nuxt) pour de grands comptes.
-                        </p>
-                    </section>
+    <div class="page-wrap">
 
-                    <aside class="portrait-panel">
-                        <div class="portrait-frame">
-                            <img src="portrait.jpg" alt="Portrait de Jérôme Capelle">
-                            <div class="portrait-badge">15ans EXP</div>
+        <!-- HEADER -->
+        <header class="header">
+            <div class="header-left">
+                <div class="name-block">
+                    <h1 class="hero-name">
+                        <span>JÉRÔME</span>
+                        <span>CAPELLE</span>
+                    </h1>
+                </div>
+                <div style="padding: 2.5rem 0 0;">
+                    <p class="hero-subtitle">Ingénieur Full Stack</p>
+                    <p class="hero-summary">
+                        Expert avec <span class="hl">15 ans d'expérience</span> dans la conception
+                        d'applications web critiques. Spécialisé en architectures backend
+                        (<span class="hl">Python / Django</span>, Symfony) et interfaces modernes
+                        (<span class="hl">Vue.js / Nuxt</span>) pour de grands comptes.
+                    </p>
+                </div>
+            </div>
+            <div class="header-right">
+                <div class="portrait-wrap">
+                    <div class="portrait-frame">
+                        <img src="portrait.jpg" alt="Portrait Jérôme Capelle">
+                    </div>
+                    <div class="portrait-badge">15Y EXP</div>
+                </div>
+            </div>
+        </header>
+
+        <!-- MARQUEE -->
+        <div class="marquee-band">
+            <div class="marquee-track">
+                <span class="marquee-item">DJANGO • SYMFONY • VUE.JS • NUXT • POSTGRESQL • DOCKER • GOOGLE CLOUD • GIT
+                    •&nbsp;</span>
+                <span class="marquee-item">DJANGO • SYMFONY • VUE.JS • NUXT • POSTGRESQL • DOCKER • GOOGLE CLOUD • GIT
+                    •&nbsp;</span>
+            </div>
+        </div>
+
+        <!-- CONTACT BAR -->
+        <div class="contact-bar">
+            <div class="contact-item">
+                <small>Localisation</small>
+                <strong>GRAGNAGUE (31), FR</strong>
+            </div>
+            <div class="contact-item">
+                <small>Téléphone</small>
+                <strong>06 16 49 40 25</strong>
+            </div>
+            <div class="contact-item">
+                <small>Email</small>
+                <strong>JEROME.CAPELLE@GMAIL.COM</strong>
+            </div>
+            <div class="contact-item">
+                <small>Détails</small>
+                <strong>50 ANS • PERMIS B</strong>
+            </div>
+        </div>
+
+        <!-- BODY -->
+        <div class="body-grid">
+            <!-- MAIN -->
+            <main class="main-col">
+
+                <!-- EXPÉRIENCES -->
+                <section>
+                    <div class="section-heading">
+                        <h2>Expériences</h2>
+                        <span class="arrow-icon">↘</span>
+                    </div>
+
+                    <!-- CCL Consulting -->
+                    <div class="exp-card">
+                        <div class="exp-card-header">
+                            <span class="exp-company">CCL Consulting</span>
+                            <span class="exp-clients">SAFRAN • GUIDAP • AIRBUS</span>
                         </div>
-                    </aside>
-                </header>
+                        <p class="exp-role">Ingénieur Full Stack | 2020 – Aujourd'hui</p>
+                        <ul class="exp-missions">
+                            <li><strong>Safran Ventilation Systems</strong> — <em>Développement d'une application
+                                    critique de calcul de fiabilité.</em></li>
+                            <li><strong>Guidap</strong> — <em>Maintenance et évolution d'une plateforme d'activités de
+                                    plein air (PHP/Symfony).</em></li>
+                            <li><strong>Airbus</strong> — <em>Automatisation de la gestion du cycle de vie des comptes
+                                    collaborateurs (Python/G Suite).</em></li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Django</span>
+                            <span class="tech-tag">Vue.js</span>
+                            <span class="tech-tag">Nuxt</span>
+                            <span class="tech-tag">PostgreSQL</span>
+                        </div>
+                    </div>
 
-                <section class="marquee-band">
-                    <div class="marquee-track">
-                        <span class="marquee-item">Python • Django • PHP • Symfony • Vuejs • Nuxt • Tailwind CSS •PostgreSQL • Git •</span>
-                        <span class="marquee-item">Python • Django • PHP • Symfony • Vuejs • Nuxt • Tailwind CSS •PostgreSQL •  Git •</span>
+                    <!-- Décasoft -->
+                    <div class="exp-card">
+                        <div class="exp-card-header">
+                            <span class="exp-company">Décasoft</span>
+                            <span class="exp-clients">AIRBUS • WS-INTERACTIVE</span>
+                        </div>
+                        <p class="exp-role">Ingénieur d'études | 2017 – 2020</p>
+                        <ul class="exp-missions">
+                            <li>Développement et maintenance de plusieurs sites internet critiques pour grands comptes
+                                industriels.</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">PHP</span>
+                            <span class="tech-tag">Symfony</span>
+                            <span class="tech-tag">Python</span>
+                            <span class="tech-tag">Angular</span>
+                            <span class="tech-tag">RabbitMQ</span>
+                        </div>
+                    </div>
+
+                    <!-- CELAD -->
+                    <div class="exp-card">
+                        <div class="exp-card-header">
+                            <span class="exp-company">CELAD</span>
+                            <span class="exp-clients">FRAM • EUROPA • LATÉCOÈRE</span>
+                        </div>
+                        <p class="exp-role">Ingénieur Développement | 2010 – 2017</p>
+                        <ul class="exp-missions">
+                            <li>Développement de back-offices complexes, gestion de flux de données via Talend,
+                                plateformes B2B/B2C.</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span class="tech-tag">Symfony 1.4/2</span>
+                            <span class="tech-tag">Talend ETL</span>
+                            <span class="tech-tag">AngularJS</span>
+                            <span class="tech-tag">jQuery</span>
+                        </div>
                     </div>
                 </section>
 
-                <section class="hero-cta">
-                    <div>
-                        <small>Localisation</small>
-                        <strong>GRAGNAGUE (31), FR</strong>
+            </main>
+
+            <!-- SIDEBAR -->
+            <aside class="sidebar">
+
+                <!-- Arsenal -->
+                <div class="sb-section">
+                    <h3>Arsenal</h3>
+                    <div class="arsenal-item">
+                        <div class="arsenal-item-header">
+                            <span class="arsenal-icon">&gt;_</span>
+                            <div class="arsenal-content"><strong>Backend</strong></div>
+                        </div>
+                        <div class="arsenal-content"><span>Python (Django), PHP (Symfony 3/4).</span></div>
                     </div>
-                    <div>
-                        <small>Téléphone</small>
-                        <strong>06 16 49 40 25</strong>
+                    <div class="arsenal-item">
+                        <div class="arsenal-item-header">
+                            <span class="arsenal-icon">80</span>
+                            <div class="arsenal-content"><strong>Frontend</strong></div>
+                        </div>
+                        <div class="arsenal-content"><span>Vue.js, Nuxt, Angular, Tailwind CSS.</span></div>
                     </div>
-                    <div>
-                        <small>Email</small>
-                        <strong>JEROME.CAPELLE@GMAIL.COM</strong>
+                    <div class="arsenal-item">
+                        <div class="arsenal-item-header">
+                            <span class="arsenal-icon">🗄</span>
+                            <div class="arsenal-content"><strong>Data</strong></div>
+                        </div>
+                        <div class="arsenal-content"><span>PostgreSQL, MSSQL, MariaDB, Talend.</span></div>
                     </div>
-                    <div>
-                        <small>Détails</small>
-                        <strong>50 ANS • PERMIS B</strong>
+                    <div class="arsenal-item">
+                        <div class="arsenal-item-header">
+                            <span class="arsenal-icon">☁</span>
+                            <div class="arsenal-content"><strong>Cloud / Ops</strong></div>
+                        </div>
+                        <div class="arsenal-content"><span>Google Cloud (GCP), Docker, G Suite APIs.</span></div>
                     </div>
-                </section>
-
-                <div class="main-grid">
-                    <main class="main-column">
-                        <section class="section-card">
-                            <div class="section-title">
-                                <h2>Expériences</h2>
-                                <span class="line"></span>
-                            </div>
-
-                            <div class="experience">
-                                <article class="experience-item">
-                                    <div class="experience-meta">
-                                        <p class="job-title">Ingénieur Full Stack | 2020 – Aujourd'hui</p>
-                                        <p class="company-name">CCL CONSULTING</p>
-                                    </div>
-                                    <p class="job-details">Développement d'applications critiques, maintenance d'environnements industriels et automatisation de processus.</p>
-                                    <ul class="job-list">
-                                        <li>
-                                            <strong>Safran Ventilation Systems</strong>
-                                            <span>Développement d'une application de calcul de fiabilité des équipements.</span>
-                                            <span class="job-meta">Python, Django, Vue.js, Nuxt, PostgreSQL, Git.</span>
-                                        </li>
-                                        <li>
-                                            <strong>Guidap</strong>
-                                            <span>Maintenance et évolution d’une plateforme d’activités de plein air.</span>
-                                            <span class="job-meta">PHP, Symfony, Vue.js, MariaDB, Docker.</span>
-                                        </li>
-                                        <li>
-                                            <strong>Airbus</strong>
-                                            <span>Automatisation de la gestion du cycle de vie des comptes collaborateurs dans G Suite.</span>
-                                            <span class="job-meta">Python, Django, MSSQL, Google APIs, Angular.</span>
-                                        </li>
-                                    </ul>
-                                </article>
-
-                                <article class="experience-item">
-                                    <div class="experience-meta">
-                                        <p class="job-title">Ingénieur d'études | 2017 – 2020</p>
-                                        <p class="company-name">DÉCASOFT</p>
-                                    </div>
-                                    <p class="job-details">Développement et maintenance de sites critiques pour de grands comptes industriels.</p>
-                                    <ul class="job-list">
-                                        <li>
-                                            <strong>Airbus</strong>
-                                            <span>Maintenance de plusieurs sites internet critiques.</span>
-                                            <span class="job-meta">PHP, Symfony, Python, Angular, MSSQL.</span>
-                                        </li>
-                                        <li>
-                                            <strong>WS-Interactive</strong>
-                                            <span>Applications web B2B/B2C et plateformes clients.</span>
-                                            <span class="job-meta">PHP, CMS, HTML/CSS, JavaScript, MySQL.</span>
-                                        </li>
-                                    </ul>
-                                </article>
-
-                                <article class="experience-item">
-                                    <div class="experience-meta">
-                                        <p class="job-title">Ingénieur Développement | 2010 – 2017</p>
-                                        <p class="company-name">CELAD</p>
-                                    </div>
-                                    <p class="job-details">Gestion de flux de données B2B/B2C et développement de back-offices complexes.</p>
-                                    <ul class="job-list">
-                                        <li>
-                                            <strong>FRAM</strong>
-                                            <span>Création de back-offices et gestion de flux via Talend.</span>
-                                            <span class="job-meta">Symfony, Talend, DB2, SQL Server.</span>
-                                        </li>
-                                        <li>
-                                            <strong>Europa Organisation</strong>
-                                            <span>Application de gestion hôtelière et réservation.</span>
-                                            <span class="job-meta">Symfony2, AngularJS, PostgreSQL.</span>
-                                        </li>
-                                        <li>
-                                            <strong>Latécoère</strong>
-                                            <span>Maintien et évolution d'applications de gestion interne.</span>
-                                            <span class="job-meta">PHP, HTML/CSS, jQuery, ExtJS.</span>
-                                        </li>
-                                    </ul>
-                                </article>
-                            </div>
-                        </section>
-
-                        <section class="section-card">
-                            <div class="section-title">
-                                <h2>Formation</h2>
-                                <span class="line"></span>
-                            </div>
-                            <div class="experience-item">
-                                <p class="company-name">Angular Framework</p>
-                                <p class="job-meta">AELION | 2021</p>
-                            </div>
-                            <div class="experience-item">
-                                <p class="company-name">Symfony 2</p>
-                                <p class="job-meta">Sensio Labs | 2014</p>
-                            </div>
-                            <div class="experience-item">
-                                <p class="company-name">DRU / Maîtrise Chimie</p>
-                                <p class="job-meta">Université Toulouse | 2000 – 2001</p>
-                            </div>
-                        </section>
-                    </main>
-
-                    <aside class="sidebar">
-                        <section class="sidebar-card">
-                            <h3>Arsenal</h3>
-                            <p><strong>Backend</strong><br>Python (Django), PHP (Symfony 3/4).</p>
-                            <p><strong>Frontend</strong><br>Vue.js, Nuxt, Angular, Tailwind CSS.</p>
-                            <p><strong>Data</strong><br>PostgreSQL, MSSQL, MariaDB, Talend.</p>
-                            <p><strong>Cloud / Ops</strong><br>Google Cloud, Docker, G Suite APIs.</p>
-                        </section>
-
-                        <section class="sidebar-card">
-                            <h3>Personnalité</h3>
-                            <p class="sidebar-pill">Adaptabilité</p>
-                            <p class="sidebar-pill">Perfectionnisme</p>
-                            <p class="sidebar-pill">Rigueur</p>
-                        </section>
-
-                        <section class="sidebar-card">
-                            <h3>Langues</h3>
-                            <p class="sidebar-pill">Français — Maternelle</p>
-                            <p class="sidebar-pill">Anglais — Technique</p>
-                        </section>
-                    </aside>
                 </div>
 
-                <footer class="footer">
-                    <div>
-                        <h2>Ingénieur Full Stack</h2>
-                        <small>© Jérôme Capelle 2024</small>
+                <!-- Formation -->
+                <div class="sb-section">
+                    <h3>Formation</h3>
+                    <div class="sb-formation-item">
+                        <strong>Angular Framework</strong>
+                        <span>Aelion | 2021</span>
                     </div>
-                    <div class="footer-deco">
-                        <span class="barcode"></span>
-                        <span class="barcode"></span>
+                    <div class="sb-formation-item">
+                        <strong>Symfony 2</strong>
+                        <span>Sensio Labs | 2014</span>
                     </div>
-                </footer>
+                    <div class="sb-formation-item">
+                        <strong>DRU / Maîtrise Chimie</strong>
+                        <span>UPS Toulouse | 2000–2001</span>
+                    </div>
+                </div>
+
+                <!-- Personnalité -->
+                <div class="sb-section">
+                    <h3>Personnalité</h3>
+                    <div class="pill-list">
+                        <div class="pill">Adaptabilité</div>
+                        <div class="pill">Perfectionnisme</div>
+                        <div class="pill">Rigueur</div>
+                    </div>
+                </div>
+
+                <!-- Langues -->
+                <div class="sb-section">
+                    <h3>Langues</h3>
+                    <div class="lang-row">
+                        <span class="lang-name">Français</span>
+                        <span class="lang-level">Maternelle</span>
+                    </div>
+                    <div class="lang-row">
+                        <span class="lang-name">Anglais</span>
+                        <span class="lang-level">Technique</span>
+                    </div>
+                </div>
+
+            </aside>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="footer">
+            <div class="footer-title">
+                INGÉNIEUR<br>FULL STACK
             </div>
-        </article>
+            <div class="footer-right">
+                <p class="footer-copy">© Jérôme Capelle 2026</p>
+            </div>
+        </footer>
+
     </div>
 </body>
 
